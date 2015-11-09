@@ -38,9 +38,6 @@ For i = 5 To LastColumn + 1
     Else
         Value = Value + " " + CStr(Cells(5, i).Value) + " = """ + Cells(2, i).Value + """"
     End If
-    
-
-
 Next i
 
 End Sub

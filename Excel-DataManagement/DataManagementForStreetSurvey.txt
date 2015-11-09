@@ -115,9 +115,6 @@ For i = 6 To LastRow 'for each row starting on row 6
 
 Next i
 
-' Add Check All responses
-
-
 
 'format
 Sheets("Formatted").Select
