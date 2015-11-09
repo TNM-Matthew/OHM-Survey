@@ -1,11 +1,8 @@
 /* SurveyLabelSummarize.sas */
-/* Generated Code (IMPORT) */
 /* Source File: SurveyResults.xlsx */
 /* Source Path: /folders/myfolders */
-/* Code generated on: Thursday, October 29, 2015 8:17:57 PM */
 
 %web_drop_table(WEBWORK.SURVEY);
-
 
 FILENAME REFFILE "/folders/myfolders/SurveyResultsCSV.csv" TERMSTR=CR;
 
@@ -55,12 +52,9 @@ LABEL Q34 = "Q34: Which race do you best identify with?  (Check all that apply. 
 LABEL Q35 = "Q35: Please indicate your current housing situation:";
 LABEL Q35a = "Q35a: From the housing option you selected, please indicate which housing status best applies to you:";
 LABEL Q36 = "Q36: How many residents occupy your housing situation (Participant counts as 1)?";
-
 run;
 
 PROC CONTENTS DATA=WEBWORK.SURVEY; RUN;
-
-
 proc format;	
  VALUE Q1f 1 = "Less than one month" 2 = "1 to 6 months" 3 = "7 months to a year" 4 = "1 to 5 years" 5 = "5 to 10 years" 6 = "10+ years" 9999 = "Skip";
  VALUE Q2f 1 = "1 night a month" 2 = "2 to 4 nights a month2" 3 = "5 to 8 nights a month" 4 = "More than 8 nights a month" 9999 = "Skip";
@@ -99,9 +93,7 @@ proc format;
  VALUE Q34f 1 = "Caucasian/White " 2 = "African American/Black " 3 = "Asian" 4 = "Native American or Alaska Native" 5 = "Native Hawaiian or Other Pacific Islander" 6 = "Other (Please specify) " 7 = "Multiracial" 8 = "Unknown/undetermined" 9999 = "Skip";
  VALUE Q35f 1 = "Homeless – Street" 2 = "Homeless – Shelter" 3 = "Apartment" 4 = "House" 5 = "Medical Care Facility" 6 = "Hotel" 7 = "SRO" 8 = "Living with Family - not paying rent" 9 = "Living with Friend - not paying rent" 10 = "Vehicle" 11 = "Refused" 12 = "Don’t know " 9999 = "Skip";
  VALUE Q35af 1 = "Unstably housed or at risk of experiencing homelessness" 2 = "Stably housed" 9999 = "Skip";
- VALUE Q36f 1 = "1" 2 = "2 to 4" 3 = "5+" 9999 = "Skip";
-
-	
+ VALUE Q36f 1 = "1" 2 = "2 to 4" 3 = "5+" 9999 = "Skip";	
 run;
 
 proc freq data=WEBWORK.SURVEY;
@@ -144,9 +136,9 @@ Q35 Q35f.
 Q35a Q35af.
 Q36 Q36f.
 ;
-	tables Location Spanish Q1 Q2 Q3 Q5 Q5a Q6 Q7 Q8 Q9 
-		Q10 Q11 Q12 Q13 Q14 Q15 Q16 Q17 Q18 Q19 Q20 Q21 Q22 Q23 Q24 
-		Q26 Q27 Q28 Q29 Q29a Q30 Q31 Q32 Q33 Q33a Q34 Q35 Q35a Q36 / plots=(freqplot);
+tables Location Spanish Q1 Q2 Q3 Q5 Q5a Q6 Q7 Q8 Q9 
+	Q10 Q11 Q12 Q13 Q14 Q15 Q16 Q17 Q18 Q19 Q20 Q21 Q22 Q23 Q24 
+	Q26 Q27 Q28 Q29 Q29a Q30 Q31 Q32 Q33 Q33a Q34 Q35 Q35a Q36 / plots=(freqplot);
 run;
 
 %web_open_table(WEBWORK.SURVEY);
